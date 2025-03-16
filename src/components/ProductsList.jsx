@@ -21,21 +21,19 @@ const ProductsList = () => {
               className='h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover mx-auto sm:mr-4'
             />
 
-            <div className='flex flex-col flex-1 justify-between text-center sm:text-left'>
-              <div className='flex items-center justify-between flex-wrap'>
-                <div>
-                  <h3 className='capitalize font-medium text-lg'>{title}</h3>
-                  <h4 className='capitalize text-md text-neutral dark:text-accent'>
-                    {company}
-                  </h4>
-                </div>
-                <p className='text-accent font-medium text-lg ml-auto'>
-                  {currencyAmount}
-                </p>
+            <div className='flex flex-col flex-1 items-center sm:items-start text-center sm:text-left'>
+              <div>
+                <h3 className='capitalize font-medium text-lg'>{title}</h3>
+                <h4 className='capitalize text-md text-neutral dark:text-accent'>
+                  {company}
+                </h4>
               </div>
 
-              {/* Description moves below the image on small screens */}
-              <div className='mt-4 text-sm text-gray-600 dark:text-slate-400 sm:mt-0'>
+              <p className='text-accent font-medium text-lg mt-2 sm:mt-0'>
+                {currencyAmount}
+              </p>
+
+              <div className='mt-4 text-sm text-gray-600 dark:text-slate-400'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
                 error alias ad quibusdam sapiente nihil optio assumenda illo
                 accusantium fugiat magni natus odio quod, omnis fugit autem
