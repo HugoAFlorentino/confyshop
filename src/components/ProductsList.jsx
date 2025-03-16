@@ -5,7 +5,7 @@ const ProductsList = () => {
   const { products } = useLoaderData();
 
   return (
-    <div className='mt-12 grid gap-y-8 '>
+    <div className='mt-12 grid gap-y-8'>
       {products.map((product) => {
         const { title, price, image, company } = product.attributes;
         const currencyAmount = formatPrice(price);
@@ -13,15 +13,16 @@ const ProductsList = () => {
           <Link
             key={product.id}
             to={`/products/${product.id}`}
-            className='p-8 rounded-lg flex flex-row sm:flex-row gap-y-4 flex-wrap bg-base-100 shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-transform ease-in-out duration-100 min-h-[200px]'
+            className='p-8 rounded-lg flex flex-col sm:flex-row gap-y-4 bg-base-100 shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-transform ease-in-out duration-100 min-h-[200px]'
           >
             <img
               src={image}
               alt={title}
-              className='h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover mr-4 sm:mr-0'
+              className='h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover mx-auto sm:mr-4'
             />
-            <div className='ml-0 sm:ml-16 flex flex-col flex-1 justify-between'>
-              <div className='flex items-center justify-between'>
+
+            <div className='flex flex-col flex-1 justify-between text-center sm:text-left'>
+              <div className='flex items-center justify-between flex-wrap'>
                 <div>
                   <h3 className='capitalize font-medium text-lg'>{title}</h3>
                   <h4 className='capitalize text-md text-neutral dark:text-accent'>
@@ -32,7 +33,9 @@ const ProductsList = () => {
                   {currencyAmount}
                 </p>
               </div>
-              <div className='mt-4 text-sm text-gray-600 dark:text-slate-400'>
+
+              {/* Description moves below the image on small screens */}
+              <div className='mt-4 text-sm text-gray-600 dark:text-slate-400 sm:mt-0'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
                 error alias ad quibusdam sapiente nihil optio assumenda illo
                 accusantium fugiat magni natus odio quod, omnis fugit autem
