@@ -42,7 +42,7 @@ export const loader =
     } catch (error) {
       const errorMessage =
         error?.response?.data?.error?.message ||
-        'Something went wrong try again later';
+        'Something went wrong, try again later';
       toast.error(errorMessage);
       if (error?.response?.status === 401 || 403) return redirect('/login');
 
@@ -54,15 +54,17 @@ const Orders = () => {
   const { meta } = useLoaderData();
 
   if (meta.pagination.total < 1) {
-    return <SectionTitle text='please make an order' />;
+    return <SectionTitle text='Please make an order' />;
   }
 
   return (
-    <>
+    <div className='overflow-x-hidden w-full'>
       <SectionTitle text='Your Orders' />
-      <OrdersList />
-      <PaginationContainer />
-    </>
+      <div className='max-w-7xl mx-auto px-4'>
+        <OrdersList />
+        <PaginationContainer />
+      </div>
+    </div>
   );
 };
 
